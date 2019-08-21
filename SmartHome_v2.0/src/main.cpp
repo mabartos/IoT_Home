@@ -1,8 +1,6 @@
 #include "main.hpp"
 #include <stdio.h>
 
-using namespace std;
-
 BlynkWifi Blynk(_blynkTransport);
 DHT dht(DHT_PIN,DHT11);
 

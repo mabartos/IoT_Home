@@ -19,7 +19,7 @@ void changeIntensity(int device, float intensity,int *deviceIntensity) {
     *deviceIntensity = reqIntensity;
 
     //Difference for computing delay
-    unsigned long difference = (unsigned long) abs(actualIntensity - reqIntensity);
+    unsigned long difference = (unsigned long) std::abs(actualIntensity - reqIntensity);
     if (difference != 0) {
         unsigned long delayPerIteration = delayMs / difference;
 

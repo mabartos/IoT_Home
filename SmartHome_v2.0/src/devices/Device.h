@@ -6,7 +6,7 @@ class Device {
 private:
     string name;
     unsigned int id = 0;
-    bool state = false;
+    bool turnedOn;
     unsigned int pin = 0;
     unsigned int virtualPin = 0;
 
@@ -17,13 +17,19 @@ public:
 
     ~Device();
 
+    virtual void init();
+
+    virtual void execute();
+
     int getId();
 
     string getName();
 
-    bool isTurnedOn();
+    virtual bool isTurnedOn();
 
     unsigned int getPin();
 
     unsigned int getVirtualPin();
+
+
 };
