@@ -52,10 +52,10 @@ unsigned int LightsDevice::checkIntensity(float intensity) {
 
 void LightsDevice::changeStateLed() {
     if (isTurnedOn()) {
-        LightsDevice::turnedOn=false;
+        LightsDevice::turnedOn = false;
         changeIntensity(0);
     } else {
-        LightsDevice::turnedOn=true;
+        LightsDevice::turnedOn = true;
         changeIntensity(1);
     }
 }

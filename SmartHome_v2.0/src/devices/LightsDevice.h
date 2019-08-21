@@ -1,5 +1,8 @@
+#ifndef LIGHTS_DEVICE_H
+#define LIGHTS_DEVICE_H
+
 #include "main.hpp"
-#include "devices/Device.h"
+#include "devices/core/Device.h"
 
 class LightsDevice : public Device {
 private:
@@ -21,3 +24,5 @@ public:
 
     bool isTurnedOn();
 };
+
+#endif //LIGHTS_DEVICE_H

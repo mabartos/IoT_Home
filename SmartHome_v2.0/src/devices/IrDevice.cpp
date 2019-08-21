@@ -1,11 +1,22 @@
-#include "main.hpp"
+#include "IrDevice.h"
+#include "constants/ir_codes.h
 
-decode_results results;
-IRrecv irrecv(RECV_PIN);
+IrDevice::IrDevice(string name, int pin, int virtualPin, Device device) : Device(name, pin, virtualPin) {
+    irrecv.enableIRIn();
+}
 
-void decodeIR(int value) {
+IrDevice::~IrDevice() {}
+
+void IrDevice::execute() {
+    if (irrecv.decode(&results)) {
+        decodeIR(results.value);
+        irrecv.resume(); // Receive the next value
+    }
+}
+
+void IrDevice::decodeIR(int value) {
     switch (value) {
-        case 0x20DF8E71:
+        case LG_GREEN:
             if (*ledUnderOn) {
                 Blynk.virtualWrite(V_LED_UNDER, 0);
                 changeStateLed(LED_UNDER, 0, ledUnderIntensity, ledUnderOn);
@@ -14,7 +25,7 @@ void decodeIR(int value) {
                 changeStateLed(LED_UNDER, 1, ledUnderIntensity, ledUnderOn);
             }
             break;
-        case 0x20DFC639:
+        case LG_YELLOW:
             if (*ledMainOn) {
                 Blynk.virtualWrite(V_LED_MAIN, 0);
                 changeStateLed(LED_MAIN, 0, ledMainIntensity, ledMainOn);
@@ -26,8 +37,4 @@ void decodeIR(int value) {
         default:
             break;
     }
-}
-
-void irInit() {
-
 }

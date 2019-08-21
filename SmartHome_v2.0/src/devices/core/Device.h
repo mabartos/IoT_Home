@@ -1,3 +1,5 @@
+#ifndef DEVICE_H
+#define DEVICE_H
 
 using namespace std;
 
@@ -6,10 +8,12 @@ class Device {
 private:
     string name;
     unsigned int id = 0;
-    bool turnedOn;
     unsigned int pin = 0;
     unsigned int virtualPin = 0;
 
+protected:
+    bool turnedOn;
+  
 public:
     static unsigned int id_counter;
 
@@ -30,6 +34,6 @@ public:
     unsigned int getPin();
 
     unsigned int getVirtualPin();
-
-
 };
+
+#endif //DEVICE_H

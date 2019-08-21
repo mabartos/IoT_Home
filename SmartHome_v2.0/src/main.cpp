@@ -4,13 +4,6 @@
 BlynkWifi Blynk(_blynkTransport);
 DHT dht(DHT_PIN,DHT11);
 
-int *ledUnderIntensity = (int *) malloc(sizeof(int));
-int *ledMainIntensity = (int *) malloc(sizeof(int));
-bool *ledUnderOn = (bool *) malloc(1);
-bool *ledMainOn = (bool *) malloc(1);
-
-Device test("test",3,3);
-
 BLYNK_CONNECTED() {
     Blynk.syncAll();
 }
@@ -76,30 +69,16 @@ void setup() {
     Blynk.begin(AUTH_TOKEN,SSID,PASS);
     dht.begin();
 
-    //pinMode(RELE1, OUTPUT);
-    //pinMode(RELE2, OUTPUT);
-
     pinMode(EXT_BTN_L, INPUT_PULLUP);
     pinMode(EXT_BTN_R, INPUT_PULLUP);
 
     pinMode(LED_UNDER, OUTPUT);
     pinMode(LED_MAIN, OUTPUT);
 
-
-
-
-    //*releOn1 = changeStateRelay(0, V_RELE1, RELE1);
-    //*releOn2 = changeStateRelay(0, V_RELE2, RELE2);
 }
 
 void loop() {
     Blynk.run();
-    Serial.println(test.getId());
-
-    Serial.println(test.getName().c_str());
-    Serial.println(Device::id_counter);
-    Serial.println("___");
-
 
     checkExternBtn();
     irInit();
