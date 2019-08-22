@@ -1,8 +1,7 @@
-#include "main.hpp"
 #include "devices/LightsDevice.h"
 
-LightsDevice::LightsDevice(string name, int pin, int virtualPin) : Device(name, pin, virtualPin) {
-    Device::init();
+LightsDevice::LightsDevice(string name, int pin, int virtualPin) : OutputDevice(name, pin, virtualPin) {
+    type = DeviceType::Light;
 }
 
 LightsDevice::~LightsDevice() {}
@@ -16,7 +15,7 @@ void LightsDevice::changeIntensity(float intensity) {
     unsigned long delayMs = 1500;               //Time for speed turning on/off
     unsigned int reqIntensity = checkIntensity(intensity);    // Required Intensity
     unsigned int actualIntensity = LightsDevice::intensity; //Actual Intensity
-    unsigned long difference = (unsigned long) (actualIntensity - reqIntensity);
+    auto difference = (unsigned long) (actualIntensity - reqIntensity);
 
     LightsDevice::intensity = reqIntensity;
 
@@ -25,13 +24,13 @@ void LightsDevice::changeIntensity(float intensity) {
         unsigned long delayPerIteration = delayMs / difference;
 
         if (reqIntensity < actualIntensity) {
-            for (int i = actualIntensity; i >= reqIntensity; i--) {
-                analogWrite(LightsDevice::getPin(), i);
+            for (unsigned int i = actualIntensity; i >= reqIntensity; i--) {
+                analogWrite(getPin(), i);
                 delay(delayPerIteration);
             }
         } else {
-            for (int i = actualIntensity; i <= reqIntensity; i++) {
-                analogWrite(LightsDevice::getPin(), i);
+            for (unsigned int i = actualIntensity; i <= reqIntensity; i++) {
+                analogWrite(getPin(), i);
                 delay(delayPerIteration);
             }
         }
@@ -50,12 +49,16 @@ unsigned int LightsDevice::checkIntensity(float intensity) {
     return reqIntensity;
 }
 
-void LightsDevice::changeStateLed() {
+void LightsDevice::changeState() {
     if (isTurnedOn()) {
-        LightsDevice::turnedOn = false;
+        Device::turnedOn = false;
         changeIntensity(0);
     } else {
         LightsDevice::turnedOn = true;
         changeIntensity(1);
     }
+}
+
+bool LightsDevice::isTurnedOn() {
+    return OutputDevice::getState();
 }

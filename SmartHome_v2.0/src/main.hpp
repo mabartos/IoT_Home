@@ -8,11 +8,10 @@ using namespace std;
 #include "Adafruit_Sensor.h"
 #include "BlynkSimpleEsp8266MY.h"
 #include <IRremoteESP8266.h>
-#include <IRrecv.h>
-#include <IRutils.h>
+
 #include "blynkCredentials.h"
 #include "DHT.h"
-#include "constants/pins.h"
+#include "constants/Pins.h"
 
 #define BLYNK_PRINT Serial
 

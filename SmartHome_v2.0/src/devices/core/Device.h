@@ -1,6 +1,10 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
+#include "devices/core/types.h"
+#include <string>
+#include <utility>
+
 using namespace std;
 
 class Device {
@@ -13,7 +17,8 @@ private:
 
 protected:
     bool turnedOn;
-  
+    DeviceType type;
+
 public:
     static unsigned int id_counter;
 
@@ -24,6 +29,8 @@ public:
     virtual void init();
 
     virtual void execute();
+
+    virtual DeviceType getType();
 
     int getId();
 

@@ -3,23 +3,25 @@
 
 #include "main.hpp"
 #include "devices/core/Device.h"
+#include <devices/core/OutputDevice.h>
+
 
 class ExtBtnDevice : public Device {
 private:
     bool current;
     static bool previous;
-    LightsDevice lights;
+    OutputDevice outDevice;
 
 public:
-    ExtBtnDevice(string name, int pin, int virtualPin);
+    ExtBtnDevice(string name, int pin, int virtualPin, const OutputDevice& device);
 
     ~ExtBtnDevice();
 
-    void init();
+    void init() override;
 
-    void execute();
+    void execute() override;
 
-    LightsDevice getLights();
+    OutputDevice getDevice();
 };
 
 #endif EXT_BTN_H

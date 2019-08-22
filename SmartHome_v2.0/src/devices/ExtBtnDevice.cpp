@@ -1,10 +1,14 @@
-#include "main.hpp"
+#include <utility>
+
+
 #include "devices/ExtBtnDevice.h"
-#include "devices/LightsDevice.h"
 
 
-ExtBtnDevice::ExtBtnDevice(string name, int pin, int virtualPin, LightsDevice lights) : Device(name, pin, virtualPin) {
-    ExtBtnDevice::init();
+ExtBtnDevice::ExtBtnDevice(string name, int pin, int virtualPin, const OutputDevice& device) : Device(move(name), pin,
+                                                                                                virtualPin) {
+    type = DeviceType::ExtBtn;
+    outDevice = device;
+
 }
 
 ExtBtnDevice::~ExtBtnDevice() {}
@@ -15,17 +19,10 @@ void ExtBtnDevice::init() {
 
 void ExtBtnDevice::execute() {
     bool extBtn = digitalRead(getPin());
-    LightsDevice device = lights;
     previous = extBtn;
 
     if (extBtn != previous) {
-        if (device.isTurnedOn()) {
-            Blynk.virtualWrite(getVirtualPin(), 0);
-            changeStateLed(0);
-        } else {
-            Blynk.virtualWrite(getVirtualPin(), 1);
-            changeStateLed(1);
-        }
+        outDevice.changeState();
         previous = extBtn;
     }
 }

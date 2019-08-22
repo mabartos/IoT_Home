@@ -1,7 +1,8 @@
 #include "IrDevice.h"
-#include "constants/ir_codes.h
 
-IrDevice::IrDevice(string name, int pin, int virtualPin, Device device) : Device(name, pin, virtualPin) {
+
+IrDevice::IrDevice(string name, int pin, int virtualPin, OutputDevice device) : Device(name, pin, virtualPin) {
+    type = DeviceType::Ir;
     irrecv.enableIRIn();
 }
 
@@ -16,7 +17,7 @@ void IrDevice::execute() {
 
 void IrDevice::decodeIR(int value) {
     switch (value) {
-        case LG_GREEN:
+        case IrController::LG_GREEN:
             if (*ledUnderOn) {
                 Blynk.virtualWrite(V_LED_UNDER, 0);
                 changeStateLed(LED_UNDER, 0, ledUnderIntensity, ledUnderOn);
