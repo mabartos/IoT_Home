@@ -3,7 +3,7 @@
 
 BlynkWifi Blynk(_blynkTransport);
 DHT dht(DHT_PIN,DHT11);
-
+/*
 BLYNK_CONNECTED() {
     Blynk.syncAll();
 }
@@ -62,6 +62,7 @@ BLYNK_READ(V_HUMIDITY){
         if(!isnan(hum))
         Blynk.virtualWrite(V_HUMIDITY, (int)hum);
 }
+*/
 
 
 void setup() {

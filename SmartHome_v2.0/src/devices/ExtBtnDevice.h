@@ -9,11 +9,11 @@
 class ExtBtnDevice : public Device {
 private:
     bool current;
-    static bool previous;
+    bool previous;
     OutputDevice outDevice;
 
 public:
-    ExtBtnDevice(string name, int pin, int virtualPin, const OutputDevice& device);
+    ExtBtnDevice(string name, int pin, int virtualPin, OutputDevice device);
 
     ~ExtBtnDevice();
 

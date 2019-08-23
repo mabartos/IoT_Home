@@ -8,6 +8,8 @@ private:
 public:
     OutputDevice(string name, int pin, int virtualPin);
 
+    OutputDevice();
+
     ~OutputDevice();
 
     virtual void changeState();
