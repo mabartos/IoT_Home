@@ -46,11 +46,11 @@ void Devices::addDevice(const Device &device) {
 }
 
 void Devices::removeDevice(Device device) {
-    vector<Device>::iterator it;
     int i = 0;
-    for (it = devicesVect.begin(); it != devicesVect.end(); it++, i++) {
-        if (it.base()->getId() == device.getId())
+    for (auto deviceItem:devicesVect) {
+        if (deviceItem.getId() == device.getId())
             devicesVect.erase(devicesVect.begin() + i);
+        i++;
     }
 }
 
@@ -59,16 +59,14 @@ int Devices::getSize() {
 }
 
 void Devices::initAll() {
-    vector<Device>::iterator it;
-    for (it = devicesVect.begin(); it != devicesVect.end(); it++) {
-        it.base()->init();
+    for (auto device:devicesVect) {
+        device.init();
     }
 }
 
 void Devices::execAll() {
-    vector<Device>::iterator it;
-    for (it = devicesVect.begin(); it != devicesVect.end(); it++) {
-        it.base()->execute();
+    for (auto device:devicesVect) {
+        device.execute();
     }
 }
 
