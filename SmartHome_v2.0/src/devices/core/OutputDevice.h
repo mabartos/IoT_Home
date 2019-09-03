@@ -1,3 +1,5 @@
+#ifndef OUTPUT_DEVICE
+#define OUTPUT_DEVICE
 
 #include "devices/core/Device.h"
 
@@ -16,3 +18,5 @@ public:
 
     bool getState();
 };
+
+#endif

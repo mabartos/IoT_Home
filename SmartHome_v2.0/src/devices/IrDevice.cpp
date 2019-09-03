@@ -11,7 +11,7 @@ IrDevice::~IrDevice() {}
 
 void IrDevice::execute() {
     decode_results results;
-    int val = IR;
+    int val = DevicePins::IR;
     IRrecv irrecv(val);
     if (!isInitialized) {
         irrecv.enableIRIn();

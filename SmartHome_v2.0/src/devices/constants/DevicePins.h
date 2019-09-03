@@ -13,6 +13,14 @@ inline namespace DevicePins {
             LED_UNDER = 6,
             EXT_BTN_R = 7,
             TEMP_PIN = 8;
+
+    void init(){
+        pinMode(EXT_BTN_L, INPUT_PULLUP);
+        pinMode(EXT_BTN_R, INPUT_PULLUP);
+
+        pinMode(LED_UNDER, OUTPUT);
+        pinMode(LED_MAIN, OUTPUT);
+    }
 }
 
 #endif //SMARTHOME_V2_0_DEVICEPINS_H

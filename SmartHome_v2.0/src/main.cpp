@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 BlynkWifi Blynk(_blynkTransport);
-DHT dht(DHT_PIN,DHT11);
+DHT dht(DevicePins::TEMP_PIN,DHT11);
 /*
 BLYNK_CONNECTED() {
     Blynk.syncAll();
@@ -69,19 +69,10 @@ void setup() {
     Serial.begin(9600);
     Blynk.begin(AUTH_TOKEN,SSID,PASS);
     dht.begin();
-
-    pinMode(EXT_BTN_L, INPUT_PULLUP);
-    pinMode(EXT_BTN_R, INPUT_PULLUP);
-
-    pinMode(LED_UNDER, OUTPUT);
-    pinMode(LED_MAIN, OUTPUT);
-
+    DevicePins::init();
 }
 
 void loop() {
     Blynk.run();
-
-    checkExternBtn();
-    irInit();
     delay(10);
 }

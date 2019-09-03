@@ -4,6 +4,7 @@
 #include <IRremote.h>
 #include "constants/IrCodes.h"
 #include "devices/core/OutputDevice.h"
+#include "devices/constants/DevicePins.h"
 
 class IrDevice : public Device {
 private:

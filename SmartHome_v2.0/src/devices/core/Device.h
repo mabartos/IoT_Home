@@ -2,7 +2,6 @@
 #define DEVICE_H
 
 #include "devices/constants/DeviceTypes.h"
-#include "constants/Pins.h"
 #include <string>
 #include <utility>
 

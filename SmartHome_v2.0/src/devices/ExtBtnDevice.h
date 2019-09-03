@@ -24,4 +24,4 @@ public:
     OutputDevice getDevice();
 };
 
-#endif EXT_BTN_H
+#endif

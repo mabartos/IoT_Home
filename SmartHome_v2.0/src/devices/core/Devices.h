@@ -8,6 +8,8 @@
 #include <devices/LightsDevice.h>
 #include <devices/IrDevice.h>
 #include <devices/ExtBtnDevice.h>
+#include "devices/constants/DeviceNames.h"
+#include "devices/constants/DevicePins.h"
 
 class Devices {
 private:
@@ -17,6 +19,10 @@ private:
     static vector<ExtBtnDevice> extBtnVect;
 
 public:
+    Devices();
+
+    ~Devices();
+
     static Device &findById(int id);
 
     static Device &findByName(const string &name);
