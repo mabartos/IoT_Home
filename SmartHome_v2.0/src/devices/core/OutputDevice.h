@@ -6,7 +6,7 @@ private:
     bool state;
 
 public:
-    OutputDevice(string name, int pin, int virtualPin);
+    OutputDevice(string name, int pin);
 
     OutputDevice();
 

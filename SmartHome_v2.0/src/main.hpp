@@ -11,7 +11,6 @@ using namespace std;
 
 #include "blynkCredentials.h"
 #include "DHT.h"
-#include "constants/Pins.h"
 
 #define BLYNK_PRINT Serial
 

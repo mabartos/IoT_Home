@@ -9,9 +9,10 @@ class IrDevice : public Device {
 private:
   bool isInitialized=false;
   void decodeIR(int value);
+  OutputDevice &controlledDevice;
 
 public:
-    IrDevice(string name, int pin, int virtualPin, OutputDevice device);
+    IrDevice(string name, int pin, OutputDevice &device);
 
     ~IrDevice();
 

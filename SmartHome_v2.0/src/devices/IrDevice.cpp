@@ -3,7 +3,7 @@
 
 #include "IrDevice.h"
 
-IrDevice::IrDevice(string name, int pin, int virtualPin, OutputDevice device) : Device(name, pin, virtualPin) {
+IrDevice::IrDevice(string name, int pin, OutputDevice &device) : Device(name, pin),controlledDevice(device) {
     type = DeviceType::Ir;
 }
 

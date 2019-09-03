@@ -1,6 +1,6 @@
 #include "devices/LightsDevice.h"
 
-LightsDevice::LightsDevice(string name, int pin, int virtualPin) : OutputDevice(name, pin, virtualPin) {
+LightsDevice::LightsDevice(string name, int pin) : OutputDevice(name, pin) {
     type = DeviceType::Light;
 }
 

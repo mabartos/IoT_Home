@@ -11,37 +11,33 @@
 
 class Devices {
 private:
-    vector<Device> devicesVect;
-    vector<LightsDevice> lightsVect;
-    vector<IrDevice> IrVect;
-    vector<ExtBtnDevice> extBtnVect;
+    static vector<Device> devicesVect;
+    static vector<LightsDevice> lightsVect;
+    static vector<IrDevice> IrVect;
+    static vector<ExtBtnDevice> extBtnVect;
 
 public:
-    Devices();
+    static Device &findById(int id);
 
-    ~Devices();
+    static Device &findByName(const string &name);
 
-    Device *findById(int id);
+    static void addDevice(const Device &device);
 
-    Device *findByName(const string &name);
+    static void removeDevice(Device device);
 
-    void addDevice(const Device &device);
+    static int getSize();
 
-    void removeDevice(Device device);
+    static void initAll();
 
-    int getSize();
+    static void execAll();
 
-    void initAll();
+    static vector<Device> getAllDevices();
 
-    void execAll();
+    static vector<LightsDevice> getLights();
 
-    vector<Device> getAllDevices();
+    static vector<IrDevice> getIR();
 
-    vector<LightsDevice> getLights();
-
-    vector<IrDevice> getIR();
-
-    vector<ExtBtnDevice> getExtBtns();
+    static vector<ExtBtnDevice> getExtBtns();
 };
 
 #endif //DEVICES_H

@@ -4,7 +4,7 @@
 using namespace std;
 unsigned int Device::id_counter = 0;
 
-Device::Device(string name, int pin, int virtualPin) : name(move(name)), pin(pin), virtualPin(virtualPin) {
+Device::Device(string name, int pin) : name(move(name)), pin(pin) {
     init();
     id_counter++;
     this->id = id_counter;
@@ -27,10 +27,6 @@ bool Device::isTurnedOn() {
 
 unsigned int Device::getPin() {
     return pin;
-}
-
-unsigned int Device::getVirtualPin() {
-    return virtualPin;
 }
 
 DeviceType Device::getType() {

@@ -1,9 +1,5 @@
 #include "Devices.h"
 
-Devices::Devices() {
-}
-
-Devices::~Devices() {}
 
 vector<Device> Devices::getAllDevices() {
     return devicesVect;
@@ -21,24 +17,18 @@ vector<IrDevice> Devices::getIR() {
     return IrVect;
 }
 
-Device *Devices::findById(int id) {
-    vector<Device>::iterator it;
-
-    for (it = devicesVect.begin(); it != devicesVect.end(); it++) {
-        if (it.base()->getId() == id)
-            return it.base();
+Device &Devices::findById(int id) {
+    for(auto &device:devicesVect){
+        if(device.getId()==id)
+            return device;
     }
-    return nullptr;
 }
 
-Device *Devices::findByName(const string &name) {
-    vector<Device>::iterator it;
-
-    for (it = devicesVect.begin(); it != devicesVect.end(); it++) {
-        if (it.base()->getName() == name)
-            return it.base();
+Device &Devices::findByName(const string &name) {
+    for (auto &device:devicesVect) {
+        if(device.getName()==name)
+            return device;
     }
-    return nullptr;
 }
 
 void Devices::addDevice(const Device &device) {

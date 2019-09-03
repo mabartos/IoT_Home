@@ -4,8 +4,7 @@
 #include "devices/ExtBtnDevice.h"
 
 
-ExtBtnDevice::ExtBtnDevice(string name, int pin, int virtualPin, OutputDevice device) : Device(move(name), pin,
-                                                                                               virtualPin) {
+ExtBtnDevice::ExtBtnDevice(string name, int pin, OutputDevice &device) : Device(move(name), pin){
     type = DeviceType::ExtBtn;
     outDevice = device;
 }
@@ -25,3 +24,4 @@ void ExtBtnDevice::execute() {
         previous = extBtn;
     }
 }
+

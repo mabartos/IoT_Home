@@ -13,7 +13,7 @@ private:
     OutputDevice outDevice;
 
 public:
-    ExtBtnDevice(string name, int pin, int virtualPin, OutputDevice device);
+    ExtBtnDevice(string name, int pin, OutputDevice &device);
 
     ~ExtBtnDevice();
 

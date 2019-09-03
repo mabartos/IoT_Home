@@ -13,7 +13,7 @@ private:
 
 public:
 
-    LightsDevice(string name, int pin, int virtualPin);
+    LightsDevice(string name, int pin);
 
     ~LightsDevice();
 

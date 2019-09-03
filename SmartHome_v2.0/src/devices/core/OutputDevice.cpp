@@ -1,6 +1,6 @@
 #include "OutputDevice.h"
 
-OutputDevice::OutputDevice(string name, int pin, int virtualPin) : Device(move(name), pin, virtualPin) {
+OutputDevice::OutputDevice(string name, int pin) : Device(move(name), pin) {
     state = false;
 }
 

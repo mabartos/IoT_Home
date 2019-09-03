@@ -1,7 +1,7 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
-#include "devices/core/types.h"
+#include "devices/constants/DeviceTypes.h"
 #include "constants/Pins.h"
 #include <string>
 #include <utility>
@@ -14,7 +14,6 @@ private:
     string name;
     unsigned int id = 0;
     unsigned int pin = 0;
-    unsigned int virtualPin = 0;
 
 protected:
     bool turnedOn;
@@ -23,7 +22,7 @@ protected:
 public:
     static unsigned int id_counter;
 
-    Device(string name, int pin, int virtualPin);
+    Device(string name, int pin);
 
     ~Device();
 
@@ -41,7 +40,6 @@ public:
 
     unsigned int getPin();
 
-    unsigned int getVirtualPin();
 };
 
 #endif //DEVICE_H
