@@ -12,6 +12,6 @@ using namespace std;
 #include "DHT.h"
 #include <devices/constants/DevicePins.h>
 
-#define BLYNK_PRINT Serial
+//#define BLYNK_PRINT Serial
 
 #endif

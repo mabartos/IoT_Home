@@ -1,7 +1,10 @@
+#ifndef UNIT_TEST
 #ifndef IRDEVICE_H
 #define IRDEVICE_H
 
-#include <IRremote.h>
+#include <IRremoteESP8266.h>
+#include <IRrecv.h>
+#include <IRutils.h>
 #include "constants/IrCodes.h"
 #include "devices/core/OutputDevice.h"
 #include "devices/constants/DevicePins.h"
@@ -25,3 +28,4 @@ public:
 };
 
 #endif //IRDEVICE_H
+#endif //UNIT_TEST

@@ -4,6 +4,7 @@
 .clang_complete
 .gcc-flags.json
 .idea
+.vscode
 CMakeLists.txt
 cmake-build-debug
 src/blynkCredentials.h

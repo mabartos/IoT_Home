@@ -5,9 +5,11 @@
 #include <array>
 #include <tuple>
 #include <vector>
-#include <devices/LightsDevice.h>
-#include <devices/IrDevice.h>
-#include <devices/ExtBtnDevice.h>
+
+#include "devices/ExtBtnDevice.h"
+#include "devices/IrDevice.h"
+#include "devices/LightsDevice.h"
+
 #include "devices/constants/DeviceNames.h"
 #include "devices/constants/DevicePins.h"
 
@@ -19,9 +21,8 @@ private:
     static vector<ExtBtnDevice> extBtnVect;
 
 public:
-    Devices();
 
-    ~Devices();
+    static void setUpDevices();
 
     static Device &findById(int id);
 
@@ -37,13 +38,13 @@ public:
 
     static void execAll();
 
-    static vector<Device> getAllDevices();
+    static vector <Device> getAllDevices();
 
-    static vector<LightsDevice> getLights();
+    static vector <LightsDevice> getLights();
 
-    static vector<IrDevice> getIR();
+    static vector <IrDevice> getIR();
 
-    static vector<ExtBtnDevice> getExtBtns();
+    static vector <ExtBtnDevice> getExtBtns();
 };
 
 #endif //DEVICES_H

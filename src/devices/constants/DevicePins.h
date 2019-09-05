@@ -5,7 +5,7 @@
 #ifndef SMARTHOME_V2_0_DEVICEPINS_H
 #define SMARTHOME_V2_0_DEVICEPINS_H
 
-inline namespace DevicePins {
+namespace DevicePins {
     const int
             EXT_BTN_L = 1,
             IR = 2,
@@ -14,7 +14,7 @@ inline namespace DevicePins {
             EXT_BTN_R = 7,
             TEMP_PIN = 8;
 
-    void init(){
+    static void init(){
         pinMode(EXT_BTN_L, INPUT_PULLUP);
         pinMode(EXT_BTN_R, INPUT_PULLUP);
 

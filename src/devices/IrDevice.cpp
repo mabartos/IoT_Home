@@ -1,6 +1,4 @@
-#ifndef IR_DEVICE_H
-#define IR_DEVICE_H
-
+#ifndef UNIT_TEST
 #include "IrDevice.h"
 
 IrDevice::IrDevice(string name, int pin, OutputDevice &device) : Device(name, pin),controlledDevice(device) {
@@ -26,10 +24,8 @@ void IrDevice::execute() {
 void IrDevice::decodeIR(int value) {
     switch (value) {
         case (int) IrController::LG_GREEN:
-
             break;
         case (int) IrController::LG_YELLOW:
-
             break;
         default:
             break;

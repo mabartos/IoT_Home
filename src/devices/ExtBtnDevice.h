@@ -1,7 +1,7 @@
 #ifndef EXT_BTN_H
 #define EXT_BTN_H
 
-#include "main.hpp"
+#include <Arduino.h>
 #include "devices/core/Device.h"
 #include <devices/core/OutputDevice.h>
 
@@ -10,7 +10,7 @@ class ExtBtnDevice : public Device {
 private:
     bool current;
     bool previous;
-    OutputDevice outDevice;
+    OutputDevice &outDevice;
 
 public:
     ExtBtnDevice(string name, int pin, OutputDevice &device);
@@ -21,7 +21,7 @@ public:
 
     void execute() override;
 
-    OutputDevice getDevice();
+    OutputDevice &getDevice();
 };
 
 #endif

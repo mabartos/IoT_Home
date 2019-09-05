@@ -9,3 +9,6 @@ OutputDevice::~OutputDevice() {}
 bool OutputDevice::getState() {
     return state;
 }
+
+void OutputDevice::changeState(){
+}

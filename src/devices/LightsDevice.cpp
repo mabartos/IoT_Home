@@ -2,6 +2,7 @@
 
 LightsDevice::LightsDevice(string name, int pin) : OutputDevice(name, pin) {
     type = DeviceType::Light;
+    intensity=0;
 }
 
 LightsDevice::~LightsDevice() {}

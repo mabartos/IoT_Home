@@ -1,9 +1,10 @@
 #ifndef LIGHTS_DEVICE_H
 #define LIGHTS_DEVICE_H
 
-#include <devices/core/OutputDevice.h>
-#include "main.hpp"
+#include <Arduino.h>
+#include "devices/core/OutputDevice.h"
 #include "devices/core/Device.h"
+
 
 class LightsDevice : public OutputDevice {
 private:

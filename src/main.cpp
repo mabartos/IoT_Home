@@ -1,8 +1,9 @@
-#include "main.hpp"
+#include "main.h"
 #include <stdio.h>
 
 BlynkWifi Blynk(_blynkTransport);
-DHT dht(DevicePins::TEMP_PIN,DHT11);
+DHT dht(DevicePins::TEMP_PIN, DHT11);
+
 /*
 BLYNK_CONNECTED() {
     Blynk.syncAll();
@@ -64,12 +65,13 @@ BLYNK_READ(V_HUMIDITY){
 }
 */
 
-
 void setup() {
     Serial.begin(9600);
-    Blynk.begin(AUTH_TOKEN,SSID,PASS);
+    Blynk.begin(AUTH_TOKEN, SSID, PASS);
     dht.begin();
+
     DevicePins::init();
+    //Devices::setUpDevices();
 }
 
 void loop() {

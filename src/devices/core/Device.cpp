@@ -4,6 +4,11 @@
 using namespace std;
 unsigned int Device::id_counter = 0;
 
+void Device::init(){
+}
+
+void Device::execute(){}
+
 Device::Device(string name, int pin) : name(move(name)), pin(pin) {
     init();
     id_counter++;

@@ -1,7 +1,10 @@
 #include "Devices.h"
 
+vector<Device> Devices::devicesVect;
+
 // Add all devices here
-void createDevices() {
+struct CreateDevicesBlock{
+    CreateDevicesBlock() {
     //LIGHTS
     LightsDevice mainLights(DeviceNames::MAIN_LIGHTS, DevicePins::LED_MAIN);
     LightsDevice underLights(DeviceNames::UNDER_LIGHTS, DevicePins::LED_UNDER);
@@ -13,12 +16,12 @@ void createDevices() {
     Devices::addDevice(ExtBtnDevice(DeviceNames::EXT_BTN_LEFT, DevicePins::EXT_BTN_L, mainLights));
     Devices::addDevice(ExtBtnDevice(DeviceNames::EXT_BTN_RIGHT, DevicePins::EXT_BTN_R, underLights));
 }
+};
 
-Devices::Devices() {
-    createDevices();
+static CreateDevicesBlock devicesBlock;
+
+void Devices::setUpDevices(){
 }
-
-Devices::~Devices() = default;
 
 vector<Device> Devices::getAllDevices() {
     return devicesVect;
@@ -68,17 +71,13 @@ int Devices::getSize() {
 }
 
 void Devices::initAll() {
-    for (auto device:devicesVect) {
+    for (auto &device:devicesVect) {
         device.init();
     }
 }
 
 void Devices::execAll() {
-    for (auto device:devicesVect) {
+    for (auto &device:devicesVect) {
         device.execute();
     }
 }
-
-
-
-
