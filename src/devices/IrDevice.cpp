@@ -1,11 +1,16 @@
-#ifndef UNIT_TEST
 #include "IrDevice.h"
+#include "core/Devices.h"
+#include "core/Device.h"
+#include "core/OutputDevice.h"
+#include "constants/DeviceTypes.h"
+#include "constants/IrCodes.h"
+#include "constants/DevicePins.h"
 
 IrDevice::IrDevice(string name, int pin, OutputDevice &device) : Device(name, pin),controlledDevice(device) {
     type = DeviceType::Ir;
 }
 
-IrDevice::~IrDevice() {}
+IrDevice::~IrDevice() = default;
 
 void IrDevice::execute() {
     decode_results results;
@@ -24,8 +29,10 @@ void IrDevice::execute() {
 void IrDevice::decodeIR(int value) {
     switch (value) {
         case (int) IrController::LG_GREEN:
+            Devices::getLights()[0]->changeState();
             break;
         case (int) IrController::LG_YELLOW:
+            Devices::getLights().at(0)->changeState();
             break;
         default:
             break;
@@ -36,4 +43,6 @@ void IrDevice::setEvent(IrController code, OutputDevice device) {
 
 }
 
-#endif
+void IrDevice::init() {
+    Device::init();
+}

@@ -1,22 +1,24 @@
 #include <string>
+
 #include "Device.h"
+#include "../constants/DeviceTypes.h"
 
 using namespace std;
 unsigned int Device::id_counter = 0;
 
-void Device::init(){
+void Device::init() {
 }
 
-void Device::execute(){}
+void Device::execute() {}
 
-Device::Device(string name, int pin) : name(move(name)), pin(pin) {
+Device::Device(string name, int pin) : name(move(name)), pin(pin), type(DeviceType::None) {
     init();
     id_counter++;
     this->id = id_counter;
     turnedOn = false;
 }
 
-Device::~Device() {}
+Device::~Device() = default;
 
 int Device::getId() {
     return id;
@@ -34,6 +36,6 @@ unsigned int Device::getPin() {
     return pin;
 }
 
-DeviceType Device::getType() {
-    return DeviceType::None;
+DeviceType &Device::getType() {
+    return type;
 }

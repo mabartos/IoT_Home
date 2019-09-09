@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include "devices/constants/DevicePins.h"
 
 BlynkWifi Blynk(_blynkTransport);
 DHT dht(DevicePins::TEMP_PIN, DHT11);

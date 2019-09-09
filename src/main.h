@@ -10,8 +10,7 @@ using namespace std;
 
 #include "blynkCredentials.h"
 #include "DHT.h"
-#include <devices/constants/DevicePins.h>
-
+#include "devices/core/DeviceDependencies.h"
 //#define BLYNK_PRINT Serial
 
 #endif

@@ -1,16 +1,17 @@
 #ifndef OUTPUT_DEVICE
 #define OUTPUT_DEVICE
 
-#include "devices/core/Device.h"
+#include <string>
+#include "Device.h"
 
 class OutputDevice : public Device {
 private:
     bool state;
 
 public:
-    OutputDevice(string name, int pin);
+    OutputDevice(const string& name, int pin);
 
-    OutputDevice();
+    OutputDevice()= default;
 
     ~OutputDevice();
 

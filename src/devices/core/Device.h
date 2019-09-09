@@ -1,9 +1,11 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
-#include "devices/constants/DeviceTypes.h"
+
 #include <string>
 #include <utility>
+#include <main.h>
+#include "../constants/DeviceTypes.h"
 
 using namespace std;
 
@@ -29,7 +31,7 @@ public:
 
     virtual void execute();
 
-    virtual DeviceType getType();
+    virtual DeviceType &getType();
 
     int getId();
 

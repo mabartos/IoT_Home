@@ -1,36 +1,39 @@
 #ifndef DEVICES_H
 #define DEVICES_H
 
-#include "Device.h"
 #include <array>
 #include <tuple>
 #include <vector>
+#include <string>
+#include <bits/unique_ptr.h>
 
-#include "devices/ExtBtnDevice.h"
-#include "devices/IrDevice.h"
-#include "devices/LightsDevice.h"
+using namespace std;
 
-#include "devices/constants/DeviceNames.h"
-#include "devices/constants/DevicePins.h"
+class Device;
+
+class IrDevice;
+
+class ExtBtnDevice;
+
+class LightsDevice;
 
 class Devices {
 private:
-    static vector<Device> devicesVect;
-    static vector<LightsDevice> lightsVect;
-    static vector<IrDevice> IrVect;
-    static vector<ExtBtnDevice> extBtnVect;
+    static vector<unique_ptr<Device>> devicesVect;
+    static vector<unique_ptr<LightsDevice>> lightsVect;
+    static vector<unique_ptr<IrDevice>> IrVect;
+    static vector<unique_ptr<ExtBtnDevice>> extBtnVect;
 
 public:
-
-    static void setUpDevices();
 
     static Device &findById(int id);
 
     static Device &findByName(const string &name);
 
-    static void addDevice(const Device &device);
+    template<class T>
+    static void addDevice(const unique_ptr<T> &device);
 
-    static void removeDevice(Device device);
+    static void removeDevice(unique_ptr<Device> &device);
 
     static int getSize();
 
@@ -38,13 +41,13 @@ public:
 
     static void execAll();
 
-    static vector <Device> getAllDevices();
+    static vector<unique_ptr<Device>> getAllDevices();
 
-    static vector <LightsDevice> getLights();
+    static vector<unique_ptr<LightsDevice>> getLights();
 
-    static vector <IrDevice> getIR();
+    static vector<unique_ptr<IrDevice>> getIR();
 
-    static vector <ExtBtnDevice> getExtBtns();
+    static vector<unique_ptr<ExtBtnDevice>> getExtBtns();
 };
 
 #endif //DEVICES_H

@@ -2,9 +2,8 @@
 #define LIGHTS_DEVICE_H
 
 #include <Arduino.h>
-#include "devices/core/OutputDevice.h"
-#include "devices/core/Device.h"
-
+#include <string>
+#include "core/OutputDevice.h"
 
 class LightsDevice : public OutputDevice {
 private:

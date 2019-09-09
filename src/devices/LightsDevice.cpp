@@ -1,11 +1,14 @@
 #include "devices/LightsDevice.h"
+#include "devices/core/Device.h"
+#include "devices/core/OutputDevice.h"
+#include "constants/DeviceTypes.h"
 
 LightsDevice::LightsDevice(string name, int pin) : OutputDevice(name, pin) {
     type = DeviceType::Light;
     intensity=0;
 }
 
-LightsDevice::~LightsDevice() {}
+LightsDevice::~LightsDevice() = default;
 
 unsigned int LightsDevice::getIntensity() {
     return intensity;
@@ -55,7 +58,7 @@ void LightsDevice::changeState() {
         Device::turnedOn = false;
         changeIntensity(0);
     } else {
-        LightsDevice::turnedOn = true;
+        Device::turnedOn = true;
         changeIntensity(1);
     }
 }

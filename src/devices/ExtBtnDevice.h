@@ -1,10 +1,11 @@
 #ifndef EXT_BTN_H
 #define EXT_BTN_H
 
+using namespace std;
 #include <Arduino.h>
-#include "devices/core/Device.h"
-#include <devices/core/OutputDevice.h>
+#include "core/Device.h"
 
+class OutputDevice;
 
 class ExtBtnDevice : public Device {
 private:
